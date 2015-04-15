@@ -1,0 +1,32 @@
+{
+  "name": "gitbook-plugin-todo",
+  "version": "0.0.2",
+  "description": "A plugin to embed readonly todo list in your Gitbook",
+  "main": "index.js",
+  "keywords": [
+    "gitbook",
+    "plugin",
+    "codepen"
+  ],
+  "engines": {
+    "gitbook": "*"
+  },
+  "author": "LingyuCoder",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LingyuCoder/gitbook-plugin-todo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LingyuCoder/gitbook-plugin-todo/issues"
+  },
+  "homepage": "https://github.com/LingyuCoder/gitbook-plugin-todo"
+}
