@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-todo",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A plugin to embed readonly todo list in your Gitbook",
   "main": "index.js",
   "keywords": [

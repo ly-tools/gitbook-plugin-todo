@@ -3,6 +3,30 @@ gitbook-plugin-todo
 
 **Embed readonly todo list into your Gitbook**
 
+##Install
+
+```shell
+$npm install --save gitbook-plugin-todo
+```
+
+##Usage
+
+Add the plugin to your `book.json` like this: 
+
+```javascript
+{
+    "plugins": ["todo"]
+}
+```
+
+then in your markdown file, you can embed readonly todo list like this:
+
+
+```markdown
+- [ ] write some articles
+- [x] drink a cup of tea
+```
+
 ##License
 The MIT License (MIT)
 
