@@ -3,6 +3,8 @@ gitbook-plugin-todo
 
 **Embed readonly todo list into your Gitbook**
 
+[DEMO](http://read.lingyu.wang/index.html)
+
 ##Install
 
 ```shell
