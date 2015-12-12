@@ -10,7 +10,9 @@
 
 **Embed readonly todo list into your Gitbook**
 
-## Install
+[DEMO](http://read.lingyu.wang/index.html)
+
+##Install
 
 ```shell
 $ npm install --save gitbook-plugin-todo
