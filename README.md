@@ -12,7 +12,7 @@
 
 [DEMO](http://read.lingyu.wang/index.html)
 
-##Install
+## Install
 
 ```shell
 $ npm install --save gitbook-plugin-todo
