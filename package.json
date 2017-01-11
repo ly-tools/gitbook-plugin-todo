@@ -1,6 +1,6 @@
 {
-  "name": "gitbook-plugin-todo",
-  "version": "0.1.2",
+  "name": "gitbook-plugin-checkbox",
+  "version": "0.1.3",
   "description": "A plugin to embed readonly todo list in your Gitbook",
   "main": "index.js",
   "keywords": [
