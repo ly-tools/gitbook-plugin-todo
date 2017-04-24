@@ -11,13 +11,13 @@ function fixElHelper(el, html, tag, addStyle, $) {
   if (el.attr('id')) attributes += ' id="' + el.attr('id') + '"';
   el.replaceWith('<' + tag + ' ' + attributes + '>' + html + '</' + tag + '>');
 }
-function fixUl(ul, $) {
+function fixEl(el, tag, $) {
   var found = false;
-  ul.find('ul').each(function (index, ulChild) {
-    fixUl($(ulChild), $);
+  el.find(tag).each(function (index, elChild) {
+    fixEl($(elChild), tag, $);
     var found = true;
   });
-  if (!found) fixElHelper(ul, ul.html(), 'ul', 'margin-left: 0; padding-left: 0;', $);
+  if (!found) fixElHelper(el, el.html(), tag, 'padding-left: 2em;', $);
 }
 function fixLi(li, $) {
   var found = false;
@@ -26,14 +26,14 @@ function fixLi(li, $) {
     var found = true;
   });
   if (!found) {
-    var html = li.html();
-    if (re.test(html)) {
+    var html = li.html(),
+    text = li.text(),
+    spanStyle = 'style="display: inline-block; margin-left: -2em; width: 2em; text-align: right; padding-right: 0.45em;"';
+    if (re.test(text)) {
       html = html
-        .replace(/^\s*\[ \]\s*/, '<input type="checkbox" disabled="disabled" style="margin-right: 0.8em"> ')
-        .replace(/^\s*\[x\]\s*/, '<input type="checkbox" disabled="disabled" checked="checked" style="margin-right: 0.8em"> ');
-      fixElHelper(li, html, 'li', 'list-style: none; padding-left: 1em;', $);
-    } else {
-      fixElHelper(li, html, 'li', 'list-style-position: inside; padding-left: 1em; padding-left: calc(1em + 1px);', $);
+        .replace(/\s*\[ \]\s*/, '<span ' + spanStyle + '><input type="checkbox" disabled="disabled"></span>')
+        .replace(/\s*\[x\]\s*/, '<span ' + spanStyle + '><input type="checkbox" disabled="disabled" checked="checked"></span>');
+      fixElHelper(li, html, 'li', 'list-style: none;', $);
     }
   }
 }
@@ -42,9 +42,14 @@ module.exports = {
   hooks: {
     page: function (page) {
       var $ = cheerio.load(page.content);
+      // Ensuring conformant left padding for unordered and ordered lists
       $('ul').each(function (index, ul) {
-        fixUl($(ul), $);
+        fixEl($(ul), 'ul', $);
       });
+      $('ol').each(function (index, ul) {
+        fixEl($(ul), 'ol', $);
+      });
+      // Introducing checkboxes
       $('li').each(function (index, li) {
         fixLi($(li), $);
       });
